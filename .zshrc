@@ -122,6 +122,7 @@ source $ZSH/oh-my-zsh.sh
 #-------------------------------- my stuff
 
 export PATH="$HOME/neovim/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/lazygit:$PATH"
 export EDITOR='nvim'
 export ZVM_VI_EDITOR='nvim'
