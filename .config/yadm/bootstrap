@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# assume apt install for now
+sudo apt install -y zsh
+
 # install omz
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
