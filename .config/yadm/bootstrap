@@ -5,4 +5,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 mkdir -p ~/.config/nvim/
-git clone git@github.com:d-3nnis/dvim.git ~/.config/nvim/
+if [ "$(ls -A ~/.config/nvim/)" ]; then
+    echo "Folder not empty"
+else
+    git clone git@github.com:d-3nnis/dvim.git ~/.config/nvim/
+fi
