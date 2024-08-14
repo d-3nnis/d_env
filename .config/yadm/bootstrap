@@ -1,7 +1,14 @@
 #!/bin/bash
 
+set -e
+
 # assume apt install for now
 sudo apt install -y zsh
+ret=$?
+if [ $ret -ne 0 ]; then
+    echo "Failed to install zsh"
+    exit $ret
+fi
 
 # install omz
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
