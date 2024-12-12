@@ -19,6 +19,7 @@ config.font = wezterm.font 'JetBrains Mono'
 config.font_size = 20
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
+config.max_fps = 240
 
 -- and finally, return the configuration to wezterm
 return config
