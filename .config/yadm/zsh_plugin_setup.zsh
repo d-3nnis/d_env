@@ -1,9 +1,8 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-echo $SHELL
-ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
-if [ ! -d $ZSH_CUSTOM ]; then
-    echo "Failed to find oh-my-zsh custom directory"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+if [ ! -d "${ZSH_CUSTOM}" ]; then
+    printf "ZSH_CUSTOM not set, is omz missing?\n"
     exit 1
 fi
 

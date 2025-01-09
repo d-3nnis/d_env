@@ -21,6 +21,7 @@ fi
 "${YADM_DIR}"/omz_install.zsh
 "${YADM_DIR}"/p10k_install.zsh
 "${YADM_DIR}"/fzf_install.zsh
+"${YADM_DIR}"/zsh_plugin_setup.zsh
 
 exit
 
