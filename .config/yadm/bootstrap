@@ -20,8 +20,6 @@ fi
 
 "${YADM_DIR}"/omz_install.zsh
 
-# start a new shell to ensure omz is loaded
-zsh -c 'source ${HOME}/.zshrc; zsh "${YADM_DIR}/p10k_install.zsh"'
 
 exit
 
