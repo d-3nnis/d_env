@@ -23,11 +23,9 @@ fi
 "${YADM_DIR}"/fzf_install.zsh
 "${YADM_DIR}"/zsh_plugin_setup.zsh
 
-exit
-
 NVIM_CONFIG_PATH="$HOME/.config/nvim"
 mkdir -p "$NVIM_CONFIG_PATH"
-if [ "$(ls -A $NVIM_CONFIG_PATH)" ]; then
+if [ "$(ls -A ${NVIM_CONFIG_PATH})" ]; then
     echo "Neovim folder not empty"
 else
     git clone git@github.com:d-3nnis/dvim.git ~/.config/nvim/
