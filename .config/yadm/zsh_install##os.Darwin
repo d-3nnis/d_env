@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Check if Homebrew is installed
+if ! command -v brew &> /dev/null; then
+  echo "Homebrew is not installed. Please install it first."
+  exit 1
+fi
+
+# Install zsh using Homebrew
+brew install zsh
+ret=$?
+if [ $ret -ne 0 ]; then
+    echo "Failed to install zsh using Homebrew"
+    exit $ret
+fi
+

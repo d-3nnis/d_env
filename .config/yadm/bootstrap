@@ -1,16 +1,26 @@
 #!/bin/bash
 
 set -e
-
-# assume apt install for now
-sudo apt install -y zsh
-ret=$?
-if [ $ret -ne 0 ]; then
-    echo "Failed to install zsh"
-    exit $ret
+YADM_DIR=${HOME}/.config/yadm
+if [ ! -f "${YADM_DIR}" ]; then
+    echo "YADM directory not found, I'm confused"
+    exit 1
 fi
 
-if [ -z "$ZSH" ]; then
+# check if zsh installed
+if [ -z "$(command -v zsh)" ]; then
+    echo "zsh not installed"
+    if "${YADM_DIR}"/zsh_install; then
+        echo "zsh_install failed!"
+        exit 1
+    fi
+else
+    echo "zsh already installed"
+fi
+
+return
+
+if [ -z "$(command -v omz)" ]; then
 # install omz
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     ret=$?
@@ -28,9 +38,10 @@ if [ -z "$ZSH" ]; then
     fi
 fi
 
-mkdir -p ~/.config/nvim/
-if [ "$(ls -A ~/.config/nvim/)" ]; then
-    echo "Folder not empty"
+NVIM_CONFIG_PATH="$HOME/.config/nvim"
+mkdir -p "$NVIM_CONFIG_PATH"
+if [ "$(ls -A $NVIM_CONFIG_PATH)" ]; then
+    echo "Neovim folder not empty"
 else
     git clone git@github.com:d-3nnis/dvim.git ~/.config/nvim/
 fi

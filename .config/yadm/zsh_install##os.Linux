@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Function to install zsh using apt
+install_with_apt() {
+  sudo apt update
+  sudo apt install -y zsh
+  return $?
+}
+
+# Check if Zsh is already installed
+if command -v zsh &> /dev/null; then
+  echo "Zsh is already installed"
+  exit 0
+fi
+
+# Determine which package manager is available and install zsh
+if command -v apt &> /dev/null; then
+  install_with_apt
+  ret=$?
+else
+  echo "No supported package manager found. Please install zsh manually."
+  exit 1
+fi
+
+# Check the result of the installation
+if [ $ret -ne 0 ]; then
+  echo "Failed to install zsh"
+  exit $ret
+else
+  echo "zsh installed successfully"
+fi
