@@ -2,7 +2,7 @@
 
 set -e
 YADM_DIR=${HOME}/.config/yadm
-if [ ! -f "${YADM_DIR}" ]; then
+if [ ! -d "${YADM_DIR}" ]; then
     echo "YADM directory not found, I'm confused"
     exit 1
 fi
