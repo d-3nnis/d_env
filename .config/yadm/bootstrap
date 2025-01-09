@@ -18,25 +18,10 @@ else
     echo "zsh already installed"
 fi
 
-return
+"${YADM_DIR}"/omz_install.zsh
+"${YADM_DIR}"/p10k_install.zsh
 
-if [ -z "$(command -v omz)" ]; then
-# install omz
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-    ret=$?
-    if [ $ret -ne 0 ]; then
-        echo "Failed to install oh-my-zsh"
-        exit $ret
-    fi
-
-    # install p10k
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-    ret=$?
-    if [ $ret -ne 0 ]; then
-        echo "Failed to install powerlevel10k"
-        exit $ret
-    fi
-fi
+exit
 
 NVIM_CONFIG_PATH="$HOME/.config/nvim"
 mkdir -p "$NVIM_CONFIG_PATH"
