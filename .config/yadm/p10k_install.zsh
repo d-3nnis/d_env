@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 set -e
-echo $ZSH_CUSTOM
-echo "^^^^"
+
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d "${ZSH_CUSTOM}" ]; then
     printf "ZSH_CUSTOM not set, is omz missing?"

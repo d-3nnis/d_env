@@ -19,7 +19,10 @@ else
 fi
 
 "${YADM_DIR}"/omz_install.zsh
+"${YADM_DIR}"/p10k_install.zsh
+"${YADM_DIR}"/fzf_install.zsh
 
+printf "Please restart your terminal or run 'exec zsh' to apply changes.\n"
 
 exit
 
