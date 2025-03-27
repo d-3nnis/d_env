@@ -79,7 +79,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git fzf zsh-autosuggestions sudo web-search copybuffer)
 ZVM_INIT_MODE=sourcing
-plugins=(git ssh-agent fzf zsh-autosuggestions sudo web-search copybuffer)
+plugins=(git fzf zsh-autosuggestions sudo web-search copybuffer)
 if [[ ! -v NVIM ]]; then
     plugins+=(zsh-vi-mode)
 fi
