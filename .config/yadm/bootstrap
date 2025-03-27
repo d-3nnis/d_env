@@ -16,6 +16,7 @@ if [ -z "$(command -v zsh)" ]; then
     fi
 else
     echo "zsh already installed"
+    rm ~/.zshrc
 fi
 
 "${YADM_DIR}"/omz_install.zsh
