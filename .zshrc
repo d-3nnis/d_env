@@ -77,14 +77,15 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git fzf zsh-autosuggestions sudo web-search copybuffer)
 ZVM_INIT_MODE=sourcing
-plugins=(git fzf zsh-autosuggestions sudo web-search copybuffer)
+plugins=(git fzf ssh-agent zsh-autosuggestions sudo web-search copybuffer)
 if [[ ! -v NVIM ]]; then
     plugins+=(zsh-vi-mode)
 fi
 zvm_after_init_commands+=('[ -f ~/.fzf ] && source ~/.fzf')
-# zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent quiet yes
+
 # zvm_after_init() {
   # source /usr/share/doc/fzf/examples/key-bindings.zsh
   # source /usr/share/doc/fzf/examples/completion.zsh
@@ -92,57 +93,22 @@ zvm_after_init_commands+=('[ -f ~/.fzf ] && source ~/.fzf')
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 #-------------------------------- my stuff
 
 export PATH="$HOME/neovim/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/lazygit:$PATH"
 export EDITOR='nvim'
 export ZVM_VI_EDITOR='nvim'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# export COLORTERM=truecolor
-# if [[ $TERM == xterm ]]; then export TERM=xterm-256color; fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
-alias python=python3
 alias ssh='nocorrect ssh'
 alias gpsu='git push --set-upstream $(git remote) $(git branch --show-current)'
 alias fixvpn='sudo killall -HUP vpnagentd'
-#export PATH="/usr/local/cuda-11.4/bin:$PATH"
-#export LD_LIBRARY_PATH="/usr/local/cuda-11.4/lib64:$LD_LIBRARY_PATH"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # remove these keybinds
 bindkey -r '^L'
@@ -150,3 +116,4 @@ bindkey -r '^L'
 IGNOREEOF=3
 set -o ignoreeof
 
+source ~/.zsh_env_vars
